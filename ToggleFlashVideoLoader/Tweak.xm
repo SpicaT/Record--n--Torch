@@ -1,22 +1,16 @@
 #import "../../PS.h"
-#import "../../PSPrefs.x"
+#import <Cephei/HBPreferences.h>
 #import <dlfcn.h>
 
-NSString *tweakIdentifier = @"com.PS.ToggleFlashVideo";
-
-BOOL TFVNative;
-
-HaveCallback() {
-    GetPrefs()
-    GetBool(TFVNative, @"TFVNative", YES)
-}
+HBPreferences *preferences;
+BOOL tweakEnabled;
 
 %ctor {
     if (IN_SPRINGBOARD && isiOS7Up)
         return;
-    HaveObserver();
-    callback();
-    if (TFVNative) {
+    preferences = [[HBPreferences alloc] initWithIdentifier:@"com.PS.ToggleFlashVideo"];
+    [preferences registerBool:&tweakEnabled default:YES forKey:@"TFVNative"];
+    if (tweakEnabled) {
         if (isiOS9Up)
             dlopen("/Library/MobileSubstrate/DynamicLibraries/RecordNTorch/ToggleFlashVideoiOS9AB.dylib", RTLD_LAZY);
         else if (isiOS8)

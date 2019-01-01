@@ -11,7 +11,7 @@ BOOL timelapseOverride;
 
 %hook CAMTopBar
 
-- (void)setStyle: (NSInteger)style animated: (BOOL)animated {
+- (void)setStyle:(NSInteger)style animated:(BOOL)animated {
     if (timelapseOverride)
         return;
     %orig;
@@ -25,7 +25,7 @@ BOOL timelapseOverride;
 
 %hook CAMCameraView
 
-- (void)captureController: (id)arg1 didStartRecordingForVideoRequest: (id)arg2 {
+- (void)captureController:(id)arg1 didStartRecordingForVideoRequest:(id)arg2 {
     %orig;
     self._flashButton.allowsAutomaticFlash = NO;
 }

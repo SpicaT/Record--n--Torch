@@ -1,9 +1,7 @@
 Package: com.spicat.recordntorch
 Name: Record 'n' Torch
-Depends: mobilesubstrate, preferenceloader, firmware (>= 5.0), gsc.camera-flash, gsc.still-camera
+Depends: mobilesubstrate, preferenceloader, firmware (>= 5.0), gsc.camera-flash, gsc.still-camera, ws.hbang.common (>= 1.2)
 Conflicts: org.thebigboss.recordntorch
-Replaces: org.thebigboss.recordntorch
-Provides: org.thebigboss.recordntorch
 Version: 1.0.0
 Architecture: iphoneos-arm
 Description: Toggle Torch while recording video.

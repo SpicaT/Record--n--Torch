@@ -2,7 +2,7 @@
 
 %hook CAMViewfinderViewController
 
-- (void)_startCapturingVideoWithRequest: (id)arg1 {
+- (void)_startCapturingVideoWithRequest:(id)arg1 {
     %orig;
     if (checkModeAndDevice(self._currentMode, self._currentDevice))
         self._flashButton.allowsAutomaticFlash = NO;
@@ -10,7 +10,7 @@
 
 %group iOS9
 
-- (BOOL)_shouldHideFlashButtonForMode: (NSInteger)mode device: (NSInteger)device {
+- (BOOL)_shouldHideFlashButtonForMode:(NSInteger)mode device:(NSInteger)device {
     BOOL orig = %orig;
     return checkModeAndDevice(mode, device) && [self._captureController isCapturingVideo] && orig ? NO : orig;
 }
@@ -23,7 +23,7 @@
 
 %group iOS10Up
 
-- (BOOL)_shouldHideFlashButtonForGraphConfiguration: (CAMCaptureGraphConfiguration *)configuration {
+- (BOOL)_shouldHideFlashButtonForGraphConfiguration:(CAMCaptureGraphConfiguration *)configuration {
     return checkModeAndDevice(configuration.mode, configuration.device) && [self._captureController isCapturingVideo] ? NO : %orig;
 }
 

@@ -13,7 +13,7 @@ BOOL override;
 
 %hook CAMTopBar
 
-- (void)_updateHiddenViewsForButtonExpansionAnimated: (BOOL)animated {
+- (void)_updateHiddenViewsForButtonExpansionAnimated:(BOOL)animated {
     %orig;
     if ([cameraInstance() isCapturingVideo] && shouldRun())
         [self.flashButton pl_setHidden:NO animated:YES];
@@ -27,7 +27,7 @@ BOOL override;
 
 %hook CAMTopBar
 
-- (void)_setFlashButtonExpanded: (BOOL)expand {
+- (void)_setFlashButtonExpanded:(BOOL)expand {
     %orig;
     if ([cameraInstance() isCapturingVideo] && shouldRun())
         [self.elapsedTimeView pl_setHidden:expand animated:YES];

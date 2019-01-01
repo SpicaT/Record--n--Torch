@@ -8,7 +8,7 @@ static PLCameraController *cameraInstance() {
 
 %hook PLCameraFlashButton
 
-- (void)_collapseAndSetMode: (NSInteger)mode animated: (BOOL)animated {
+- (void)_collapseAndSetMode:(NSInteger)mode animated:(BOOL)animated {
     BOOL isCapturingVideo = [cameraInstance() isCapturingVideo];
     if (shouldRun() && mode == 0 && isCapturingVideo) {
         %orig(-1, animated);
