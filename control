@@ -1,6 +1,6 @@
 Package: com.spicat.recordntorch
-Name: Record 'n' Torch
-Depends: mobilesubstrate, preferenceloader, firmware (>= 5.0), gsc.camera-flash, gsc.still-camera, ws.hbang.common (>= 1.2)
+Name: Record 'n' Torch iOS 12+
+Depends: mobilesubstrate, preferenceloader, firmware (>= 12.0), gsc.camera-flash, gsc.still-camera, ws.hbang.common (>= 1.2)
 Conflicts: org.thebigboss.recordntorch
 Version: 1.0.0
 Architecture: iphoneos-arm
